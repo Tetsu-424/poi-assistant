@@ -1,0 +1,103 @@
+body  {
+	overflow-x:hidden;
+	margin:0px;
+	margin-top:-20px;
+	height:790px;
+	padding:0px;
+	background-color:#BBBBBB;
+	color:#000000;
+}
+
+#rightTool{
+	margin-right:5px;
+	z-index: 50;
+}
+
+#ensei{
+	float:right;
+	position:relative;
+	bottom:10px;right:130px;
+	font-size:17pt;
+}
+
+#timers{
+	margin-right:-95px;
+	margin-top:40px;
+	width:350px;
+	height:100px;
+	float:right;
+	font-size:15pt;
+	z-index: 5;
+}
+
+#Fleet_quests_2{
+	width:70px;
+}
+
+#Fleet_quests_3{
+	width:70px;
+}
+
+#Fleet_quests_4{
+	width:70px;
+}
+
+#nyukyo{
+	font-size:17pt;
+	position:relative;top:120px;right:-170px;
+	float:right;
+}
+
+#docks{
+	float:right;
+	margin-right:-395px;
+	margin-top:170px;
+	font-size:15pt;
+	width:350px;
+	height:100px;
+	z-index: 10;
+}
+
+#shipType1{
+	width:70px;
+}
+
+
+#shipType2{
+	width:70px;
+}
+
+#shipType3{
+	width:70px;
+}
+
+#shipType4{
+	width:70px;
+}
+
+#box{
+	overflow:scroll;
+	width:300px;
+	height:310px;
+	border:1px solid #000;
+	background-color:#F9F9F9;
+	color:#000;
+	font-size:10px;
+}
+
+#warn{
+	font-size:5px;
+}
+
+.HP{
+	margin-left:20px;
+}
+
+#kancolle{
+	width:800px;
+	height:483px;
+	position:relative;
+	left:280px;
+	bottom:745px;
+	z-index: 1;
+}

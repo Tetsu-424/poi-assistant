@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ja">
+	
+<head>
+	<meta charset='utf-8'>
+	<title>poipoitimer</title>
+	<script type='text/javascript' src='Fleet2.js'></script>
+	<script type='text/javascript' src='Fleet3.js'></script>
+	<script type='text/javascript' src='Fleet4.js'></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/0.0.11/push.min.js"></script>
+	<script type='text/javascript' src='dock1.js'></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script type='text/javascript' src='searchData.js'></script>
+	<link rel='stylesheet' type='text/css' href='style.css'>
+	
+	
+</head>
+	<body>
+		<div id='rightTool'>
+		<p id='ensei'>遠征</p>
+		<div id="timers">
+			<!--第二艦隊のタイマー-->
+			<form name = 'Fleet2timer'>
+		<output name='counter' size='20' style='background:#FCC;'>00:00:00</output>
+		
+		<select id='Fleet_quests_2' size='1'>
+			<option value= '0'>--遠征を選択してね❤︎--</option>
+			<option value= '1'>01 練習航海</option>
+			<option value= '2'>02 長距離練習航海</option>
+			<option value= '3'>03 警備任務</option>
+			<option value= '4'>04 対潜警戒任務</option>
+			<option value= '5'>05 海上護衛任務</option>
+			<option value= '6'>06 防空射撃演習</option>
+			<option value= '7'>07 観艦式予行</option>
+			<option value= '8'>08 観艦式</option>
+			<option value= '9'>09 タンカー護衛任務</option>
+			<option value= '10'>10 強行偵察任務</option>
+			<option value= '11'>11 ボーキサイト輸送任務</option>
+			<option value= '12'>12 資源輸送任務</option>
+			<option value= '13'>13 鼠輸送作戦</option>
+			<option value= '14'>14 包囲陸戦隊撤収作戦</option>
+			<option value= '15'>15 囮機動部隊支援作戦</option>
+			<option value= '16'>16 艦隊決戦援護作戦</option>
+			<option value= '17'>17 敵地偵察作戦</option>
+			<option value= '18'>18 航空機輸送作戦</option>
+			<option value= '19'>19 北号作戦</option>
+			<option value= '20'>20 潜水艦哨戒任務</option>
+			<option value= '21'>21 北方鼠輸送作戦</option>
+			<option value= '22'>22 艦隊演習</option>
+			<option value= '23'>23 航空戦艦運用演習</option>
+			<option value= '24'>24 北方航路海上護衛</option>
+			<option value= '25'>25 通商破壊作戦</option>
+			<option value= '26'>26 敵母港空襲作戦</option>
+			<option value= '27'>27 潜水艦通商破壊作戦</option>
+			<option value= '28'>28 西方海域封鎖作戦</option>
+			<option value= '29'>29 潜水艦派遣演習</option>
+			<option value= '30'>30 潜水艦派遣作戦</option>
+			<option value= '31'>31 海外艦との接触</option>
+			<option value= '32'>32 遠洋練習航海</option>
+			<option value= '33'>33 前衛支援任務</option>
+			<option value= '34'>34 艦隊決戦支援任務</option>
+			<option value= '35'>35 MO作戦</option>
+			<option value= '36'>36 水上機基地建設</option>
+			<option value= '37'>37 東京急行</option>
+			<option value= '38'>38 東京急行(弐)</option>
+			<option value= '39'>39 遠洋潜水艦作戦</option>
+			<option value= '40'>40 水上機前線輸送</option>
+			<option value= '41'>A1 兵站強化任務</option>
+			<option value= '42'>A2 海峡警備行動</option>
+			<option value= '43'>A3 長時間対潜警戒</option>
+			<option value= '44'>B1 南西方面航空偵察作戦</option>
+			<option value= '45'>B2 敵泊地強襲反撃作戦</option>
+			<!--ここから追加遠征用
+			<option value= '46'></option>
+			<option value= '47'></option>
+			<option value= '48'></option>
+			<option value= '49'></option>
+			<option value= '50'></option>
+				-->
+		</select>
+		
+			<input type='button' name='startTimer' size='20' value='遠征開始' onclick="quest2('Fleet_quests_2');" style='width:60px;height:10px'>
+			<input type='button' name='resetTimer' size='20' value='遠征中止' onclick="reset_time2()" style='width:60px;height:10px'>
+		</form>
+			
+		<!--第三艦隊のタイマー-->
+			<form name = 'Fleet3timer'>
+		<output name='counter' size='20' style='background:#FCC;'>00:00:00</output>
+		
+		<select id='Fleet_quests_3' size='1'>
+			<option value= '0'>--遠征を選択してね❤︎--</option>
+			<option value= '1'>01 練習航海</option>
+			<option value= '2'>02 長距離練習航海</option>
+			<option value= '3'>03 警備任務</option>
+			<option value= '4'>04 対潜警戒任務</option>
+			<option value= '5'>05 海上護衛任務</option>
+			<option value= '6'>06 防空射撃演習</option>
+			<option value= '7'>07 観艦式予行</option>
+			<option value= '8'>08 観艦式</option>
+			<option value= '9'>09 タンカー護衛任務</option>
+			<option value= '10'>10 強行偵察任務</option>
+			<option value= '11'>11 ボーキサイト輸送任務</option>
+			<option value= '12'>12 資源輸送任務</option>
+			<option value= '13'>13 鼠輸送作戦</option>
+			<option value= '14'>14 包囲陸戦隊撤収作戦</option>
+			<option value= '15'>15 囮機動部隊支援作戦</option>
+			<option value= '16'>16 艦隊決戦援護作戦</option>
+			<option value= '17'>17 敵地偵察作戦</option>
+			<option value= '18'>18 航空機輸送作戦</option>
+			<option value= '19'>19 北号作戦</option>
+			<option value= '20'>20 潜水艦哨戒任務</option>
+			<option value= '21'>21 北方鼠輸送作戦</option>
+			<option value= '22'>22 艦隊演習</option>
+			<option value= '23'>23 航空戦艦運用演習</option>
+			<option value= '24'>24 北方航路海上護衛</option>
+			<option value= '25'>25 通商破壊作戦</option>
+			<option value= '26'>26 敵母港空襲作戦</option>
+			<option value= '27'>27 潜水艦通商破壊作戦</option>
+			<option value= '28'>28 西方海域封鎖作戦</option>
+			<option value= '29'>29 潜水艦派遣演習</option>
+			<option value= '30'>30 潜水艦派遣作戦</option>
+			<option value= '31'>31 海外艦との接触</option>
+			<option value= '32'>32 遠洋練習航海</option>
+			<option value= '33'>33 前衛支援任務</option>
+			<option value= '34'>34 艦隊決戦支援任務</option>
+			<option value= '35'>35 MO作戦</option>
+			<option value= '36'>36 水上機基地建設</option>
+			<option value= '37'>37 東京急行</option>
+			<option value= '38'>38 東京急行(弐)</option>
+			<option value= '39'>39 遠洋潜水艦作戦</option>
+			<option value= '40'>40 水上機前線輸送</option>
+			<option value= '41'>A1 兵站強化任務</option>
+			<option value= '42'>A2 海峡警備行動</option>
+			<option value= '43'>A3 長時間対潜警戒</option>
+			<option value= '44'>B1 南西方面航空偵察作戦</option>
+			<option value= '45'>B2 敵泊地強襲反撃作戦</option>
+			<!--ここから追加遠征用
+			<option value= '46'></option>
+			<option value= '47'></option>
+			<option value= '48'></option>
+			<option value= '49'></option>
+			<option value= '50'></option>
+				-->
+		</select>
+		
+			<input type='button' name='startTimer' size='20' value='遠征開始' onclick="quest3('Fleet_quests_3');" style='width:60px;height:10px'>
+			<input type='button' name='resetTimer' size='20' value='遠征中止' onclick="reset_time3()" style='width:60px;height:10px'>
+		</form>
+		
+		<!--第四艦隊のタイマー-->
+			<form name = 'Fleet4timer'>
+		<output name='counter' size='20' style='background:#FCC;'>00:00:00</output>
+		
+		<select id='Fleet_quests_4' size='1'>
+			<option value= '0'>--遠征を選択してね❤︎--</option>
+			<option value= '1'>01 練習航海</option>
+			<option value= '2'>02 長距離練習航海</option>
+			<option value= '3'>03 警備任務</option>
+			<option value= '4'>04 対潜警戒任務</option>
+			<option value= '5'>05 海上護衛任務</option>
+			<option value= '6'>06 防空射撃演習</option>
+			<option value= '7'>07 観艦式予行</option>
+			<option value= '8'>08 観艦式</option>
+			<option value= '9'>09 タンカー護衛任務</option>
+			<option value= '10'>10 強行偵察任務</option>
+			<option value= '11'>11 ボーキサイト輸送任務</option>
+			<option value= '12'>12 資源輸送任務</option>
+			<option value= '13'>13 鼠輸送作戦</option>
+			<option value= '14'>14 包囲陸戦隊撤収作戦</option>
+			<option value= '15'>15 囮機動部隊支援作戦</option>
+			<option value= '16'>16 艦隊決戦援護作戦</option>
+			<option value= '17'>17 敵地偵察作戦</option>
+			<option value= '18'>18 航空機輸送作戦</option>
+			<option value= '19'>19 北号作戦</option>
+			<option value= '20'>20 潜水艦哨戒任務</option>
+			<option value= '21'>21 北方鼠輸送作戦</option>
+			<option value= '22'>22 艦隊演習</option>
+			<option value= '23'>23 航空戦艦運用演習</option>
+			<option value= '24'>24 北方航路海上護衛</option>
+			<option value= '25'>25 通商破壊作戦</option>
+			<option value= '26'>26 敵母港空襲作戦</option>
+			<option value= '27'>27 潜水艦通商破壊作戦</option>
+			<option value= '28'>28 西方海域封鎖作戦</option>
+			<option value= '29'>29 潜水艦派遣演習</option>
+			<option value= '30'>30 潜水艦派遣作戦</option>
+			<option value= '31'>31 海外艦との接触</option>
+			<option value= '32'>32 遠洋練習航海</option>
+			<option value= '33'>33 前衛支援任務</option>
+			<option value= '34'>34 艦隊決戦支援任務</option>
+			<option value= '35'>35 MO作戦</option>
+			<option value= '36'>36 水上機基地建設</option>
+			<option value= '37'>37 東京急行</option>
+			<option value= '38'>38 東京急行(弐)</option>
+			<option value= '39'>39 遠洋潜水艦作戦</option>
+			<option value= '40'>40 水上機前線輸送</option>
+			<option value= '41'>A1 兵站強化任務</option>
+			<option value= '42'>A2 海峡警備行動</option>
+			<option value= '43'>A3 長時間対潜警戒</option>
+			<option value= '44'>B1 南西方面航空偵察作戦</option>
+			<option value= '45'>B2 敵泊地強襲反撃作戦</option>
+			<!--ここから追加遠征用
+			<option value= '46'></option>
+			<option value= '47'></option>
+			<option value= '48'></option>
+			<option value= '49'></option>
+			<option value= '50'></option>
+				-->
+		</select>
+			<input type='button' name='startTimer' size='20' value='遠征開始' onclick="quest4('Fleet_quests_4');" style='width:60px;height:10px'>
+			<input type='button' name='resetTimer' size='20' value='遠征中止' onclick="reset_time4()" style='width:60px;height:10px'>
+		</form>
+		</div>
+		
+		<p id='nyukyo'>入渠</p>
+		<!--第一ドック-->
+		<div id='docks'>
+		<form name='dock1timer'>
+			<output name='dockCounter' size=20>00:00:00</output>
+			<select id='shipType1' size='1'>
+				<option value='0'>--艦種を選択してね☆--</option>
+				<option value='1'>潜水艦</option>
+				<option value='1'>海防艦</option>
+				<option value='2'>駆逐艦</option>
+				<option value='2'>軽巡洋艦</option>
+				<option value='2'>重雷装巡洋艦</option>
+				<option value='2'>練習巡洋艦</option>
+				<option value='2'>水上機母艦</option>
+				<option value='2'>潜水空母</option>
+				<option value='2'>揚陸艦</option>
+				<option value='2'>補給艦</option>
+				<option value='3'>重巡洋艦</option>
+				<option value='3'>航空巡洋艦</option>
+				<option value='3'>高速戦艦(Гангут含む)</option>
+				<option value='3'>軽空母</option>
+				<option value='3'>潜水母艦</option>
+				<option value='4'>低速戦艦(Гангут除く)</option>
+				<option value='4'>航空戦艦</option>
+				<option value='4'>正規空母</option>
+				<option value='4'>装甲空母</option>
+				<option value='4'>工作艦</option>
+			</select>
+			
+			<input type='button' name='start_Dock' size='20' value='入渠開始' onclick="dock_1()" style='width:60px;height:10px'>
+			<input type='button' name='reset_Dock' size='20' value='リセット' onclick="dock_reset1()"style='width:60px;height:10px'>
+			<br>
+		     Lv:<input type='text' id='shipLv1' size='3' maxlength='3'>
+			<span class="HP">HP/MaxHP:<input type='text' id='Now_HP1' size='3' maxlength='3'>/<input type='text' id='Max_HP1' size='3' maxlength='3'></span>
+		</form>
+		
+		<!--第二ドック-->	
+		<form name='dock2timer'>
+			<output name='dockCounter' size=20>00:00:00</output>
+			<select id='shipType2' size='1'>
+				<option value='0'>--艦種を選択してね☆--</option>
+				<option value='1'>潜水艦</option>
+				<option value='1'>海防艦</option>
+				<option value='2'>駆逐艦</option>
+				<option value='2'>軽巡洋艦</option>
+				<option value='2'>重雷装巡洋艦</option>
+				<option value='2'>練習巡洋艦</option>
+				<option value='2'>水上機母艦</option>
+				<option value='2'>潜水空母</option>
+				<option value='2'>揚陸艦</option>
+				<option value='2'>補給艦</option>
+				<option value='3'>重巡洋艦</option>
+				<option value='3'>航空巡洋艦</option>
+				<option value='3'>高速戦艦(Гангут含む)</option>
+				<option value='3'>軽空母</option>
+				<option value='3'>潜水母艦</option>
+				<option value='4'>低速戦艦(Гангут除く)</option>
+				<option value='4'>航空戦艦</option>
+				<option value='4'>正規空母</option>
+				<option value='4'>装甲空母</option>
+				<option value='4'>工作艦</option>
+			</select>
+			
+			<input type='button' name='start_Dock' size='20' value='入渠開始' onclick="dock2()" style='width:60px;height:10px'>
+			<input type='button' name='reset_Dock' size='20' value='リセット' onclick="dock_reset2()"style='width:60px;height:10px'>
+			<br>
+		     Lv:<input type='text' id='shipLv2' size='3' maxlength='3'>
+			<span class="HP">HP/MaxHP:<input type='text' id='Now_HP2' size='3' maxlength='3'>/<input type='text' id='Max_HP2' size='3' maxlength='3'></span>
+		</form>
+			
+		<!--第三ドック-->
+		<form name='dock3timer'>
+			<output name='dockCounter' size=20>00:00:00</output>
+			<select id='shipType3' size='1'>
+				<option value='0'>--艦種を選択してね☆--</option>
+				<option value='1'>潜水艦</option>
+				<option value='1'>海防艦</option>
+				<option value='2'>駆逐艦</option>
+				<option value='2'>軽巡洋艦</option>
+				<option value='2'>重雷装巡洋艦</option>
+				<option value='2'>練習巡洋艦</option>
+				<option value='2'>水上機母艦</option>
+				<option value='2'>潜水空母</option>
+				<option value='2'>揚陸艦</option>
+				<option value='2'>補給艦</option>
+				<option value='3'>重巡洋艦</option>
+				<option value='3'>航空巡洋艦</option>
+				<option value='3'>高速戦艦(Гангут含む)</option>
+				<option value='3'>軽空母</option>
+				<option value='3'>潜水母艦</option>
+				<option value='4'>低速戦艦(Гангут除く)</option>
+				<option value='4'>航空戦艦</option>
+				<option value='4'>正規空母</option>
+				<option value='4'>装甲空母</option>
+				<option value='4'>工作艦</option>
+			</select>
+			
+			<input type='button' name='start_Dock' size='20' value='入渠開始' onclick="dock3()" style='width:60px;height:10px'>
+			<input type='button' name='reset_Dock' size='20' value='リセット' onclick="dock_reset3()"style='width:60px;height:10px'>
+			<br>
+		     Lv:<input type='text' id='shipLv3' size='3' maxlength='3'>
+			<span class="HP">HP/MaxHP:<input type='text' id='Now_HP3' size='3' maxlength='3'>/<input type='text' id='Max_HP3' size='3' maxlength='3'></span>
+		</form>
+			
+		<!--第四ドック-->
+		<form name='dock4timer'>
+			<output name='dockCounter' size=20>00:00:00</output>
+			<select id='shipType4' size='1'>
+				<option value='0'>--艦種を選択してね☆--</option>
+				<option value='1'>潜水艦</option>
+				<option value='1'>海防艦</option>
+				<option value='2'>駆逐艦</option>
+				<option value='2'>軽巡洋艦</option>
+				<option value='2'>重雷装巡洋艦</option>
+				<option value='2'>練習巡洋艦</option>
+				<option value='2'>水上機母艦</option>
+				<option value='2'>潜水空母</option>
+				<option value='2'>揚陸艦</option>
+				<option value='2'>補給艦</option>
+				<option value='3'>重巡洋艦</option>
+				<option value='3'>航空巡洋艦</option>
+				<option value='3'>高速戦艦(Гангут含む)</option>
+				<option value='3'>軽空母</option>
+				<option value='3'>潜水母艦</option>
+				<option value='4'>低速戦艦(Гангут除く)</option>
+				<option value='4'>航空戦艦</option>
+				<option value='4'>正規空母</option>
+				<option value='4'>装甲空母</option>
+				<option value='4'>工作艦</option>
+			</select>
+			
+			<input type='button' name='start_Dock' size='20' value='入渠開始' onclick="dock4()" style='width:60px;height:10px'>
+			<input type='button' name='reset_Dock' size='20' value='リセット' onclick="dock_reset4()"style='width:60px;height:10px'>
+			<br>
+		     Lv:<input type='text' id='shipLv4' size='3' maxlength='3'>
+			<span class="HP">HP/MaxHP:<input type='text' id='Now_HP4' size='3' maxlength='3'>/<input type='text' id='Max_HP4' size='3' maxlength='3'></span>
+		</form>
+			
+		<div id="searchBox">
+		最大HP検索:<input type="text" v-model="keyword" size='15'>
+					<div id='warn'>右の数値が未ケッコン無改修状態の最大HPです。<br>ロシア艦検索は露と入力すると楽です。</div>
+				<div id='box'>
+				<table>
+					<tr v-for="ship in filteredShips">
+						<td v-text="ship.type"></td>
+						<td v-text="ship.name"></td>
+						<td v-text="ship.maxHp"></td>
+						<td v-text="ship.tag"></td>
+					</tr>
+				</table>
+				</div>
+			</div>
+		</div>
+		</div>
+		
+		<div id='leftTool'>
+			<h2 id='url title'>お役立ちサイト</h2>
+			<h3 id='capture'>艦これに関する情報</h3>
+			<ul class='list1'>
+			<li><a href="https://wikiwiki.jp/kancolle/" target="_blank" rel="noopener" >艦これwiki</a></li>
+				<li><a href="https://kancolle.fandom.com/ja/wiki/%E8%89%A6%E3%81%93%E3%82%8C%E6%A4%9C%E8%A8%BCWiki" target="_blank" rel="noopener" >艦これ検証wiki</a></li>
+				<li><a href="https://kancolle.fandom.com/wiki/KanColle_Wiki" target="_blank" rel="noopener" >海外版艦これwiki</a></li>
+			</ul>
+			
+			<h3 id='iv_cap'>イベント攻略等</h3>
+			<ul class='list2'>
+			<li><a href="https://kamigame.jp/%E8%89%A6%E3%81%93%E3%82%8C/index.html" target="_blank" rel="noopener" >神ゲー攻略</a></li>
+			<li><a href="https://zekamashi.net/" target="_blank" rel="noopener" >ぜかましねっと艦これ！</a></li>
+			<li><a href="https://furukore.com/" target="_blank" rel="noopener" >艦これ古びた航海日誌</a></li>
+			<li><a href="https://kitongame.com/" target="_blank" rel="noopener" >キトンの艦これ攻略ブログ</a></li>
+			<li><a href="https://akankorebiyori.blog.fc2.com/" target="_blank" rel="noopener" >あ艦これ日和</a></li>
+			</ul>
+			
+			<h3 id='tool'>お役立ちツール</h3>
+			<ul class='list3'>
+			<li><a href="http://kancollecalc.jp/air_supremacy.html?" target="_blank" rel="noopener" >艦これ制空値計算機</a></li>
+			<li><a href="https://akashi-list.me/" target="_blank" rel="noopener" >明石の改修早見表</a></li>
+			<li><a href="http://hazukitei.main.jp/app/mission/" target="_blank" rel="noopener" >艦これ単発任務マネージャ</a></li>
+			<li><a href="http://kancollecalc.jp/damage.html" target="_blank" rel="noopener" >艦これダメージ計算機</a></li>
+			<li><a href="https://wantora.github.io/kancolle-recipe-generator/" target="_blank" rel="noopener" >艦これ開発レシピジェネレータ</a></li>
+			<li><a href="http://kancolle-calc.net/" target="_blank" rel="noopener" >艦これ電子計算儀置き場</a></li>
+			<!--
+			<li><a href="" target="_blank" rel="noopener" ></a></li>
+			<li><a href="" target="_blank" rel="noopener" ></a></li>
+			<li><a href="" target="_blank" rel="noopener" ></a></li>
+			-->
+		</div>
+	<a class="twitter-timeline" data-width="300" data-height="200" data-theme="light" href="https://twitter.com/KanColle_STAFF?ref_src=twsrc%5Etfw">Tweets by KanColle_STAFF</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+	
+	<!--メモ欄-->
+		<textarea name="example1" cols="30" rows="15"></textarea>
+		<textarea name="example2" cols="30" rows="15"></textarea>
+		<textarea name="example3" cols="30" rows="15"></textarea>
+		<textarea name="example4" cols="30" rows="15"></textarea>
+			
+		<div id='kancolle'>		
+		<iframe src="http://www.dmm.com/netgame/social/-/gadgets/=/app_id=854854/" frameborder="1" width="1200" height="725" style="transform:scale(0.7);-o-transform:scale(0.7);-webkit-transform:scale(0.7);-moz-transform:scale(0.7);-ms-transform:scale(0.7);transform-origin:0 0;-o-transform-origin:0 0;-webkit-transform-origin:0 0;-moz-transform-origin:0 0;-ms-transform-origin:0 0;"></iframe>
+		</div>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
